@@ -1,0 +1,421 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    overflow: hidden;
+  }
+  
+  .wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+  }
+  
+  .button {
+    will-change: transform;
+    width: 140px;
+    height: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #5fb5fe;
+    border-radius: 50%;
+    transform-origin: left top;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    cursor: pointer;
+  }
+  .button-wrapper {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    background: #1a1a1a;
+  }
+  .button-svg {
+    width: 80px;
+    height: 80px;
+    fill: white;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  .button:hover svg {
+        transform: scale(1.5);
+  }
+  
+  .active-wrapper {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  .active-wrapper.active {
+    opacity: 1;
+    visibility: visible;
+  }
+  .active-wrapper.active .dots-col {
+    transform: rotateX(0);
+  }
+  
+  .stop-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    margin-bottom: 6vh;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  .stop-button-svg {
+    fill: white;
+    width: 40px;
+    height: 40px;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  .stop-button:hover {
+    background: rgba(0, 0, 0, 0.45);
+  }
+  .stop-button:hover svg {
+    fill: tomato;
+  }
+  
+  .dots {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    perspective: 400px;
+  }
+  .dots-col {
+    margin: 15px;
+    transform: rotateX(-90deg);
+    transform-origin: bottom center;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+  @media (max-width: 600px) {
+    .dots-col {
+      margin: 9px;
+    }
+  }
+  .dots-dot {
+    width: 20px;
+    height: 20px;
+    background: white;
+    opacity: 0.3;
+    border-radius: 50%;
+    margin: 15px 0;
+  }
+  @media (max-width: 600px) {
+    .dots-dot {
+      width: 13px;
+      height: 13px;
+      margin: 9px 0;
+    }
+  }
+  
+  .dots-col:nth-child(1) > .dots-dot:nth-child(4) {
+    -webkit-animation: lightup 0.6s cubic-bezier(0.86, 0, 0.07, 1) infinite;
+            animation: lightup 0.6s cubic-bezier(0.86, 0, 0.07, 1) infinite;
+    -webkit-animation-delay: -0.24s;
+            animation-delay: -0.24s;
+  }
+  
+  .dots-col:nth-child(1) > .dots-dot:nth-child(5) {
+    -webkit-animation: lightup 0.6s cubic-bezier(0.86, 0, 0.07, 1) infinite;
+            animation: lightup 0.6s cubic-bezier(0.86, 0, 0.07, 1) infinite;
+    -webkit-animation-delay: -0.3s;
+            animation-delay: -0.3s;
+  }
+  
+  .dots-col:nth-child(1) > .dots-dot:nth-child(6) {
+    -webkit-animation: lightup 0.6s cubic-bezier(0.86, 0, 0.07, 1) infinite;
+            animation: lightup 0.6s cubic-bezier(0.86, 0, 0.07, 1) infinite;
+    -webkit-animation-delay: -0.36s;
+            animation-delay: -0.36s;
+  }
+  
+  .dots-col:nth-child(2) > .dots-dot:nth-child(3) {
+    -webkit-animation: lightup 0.7s cubic-bezier(0.86, 0, 0.07, 1) infinite;
+            animation: lightup 0.7s cubic-bezier(0.86, 0, 0.07, 1) infinite;
+    -webkit-animation-delay: -0.24s;
+            animation-delay: -0.24s;
+  }
+  
+  .dots-col:nth-child(2) > .dots-dot:nth-child(4) {
+    -webkit-animation: lightup 0.7s cubic-bezier(0.86, 0, 0.07, 1) infinite;
+            animation: lightup 0.7s cubic-bezier(0.86, 0, 0.07, 1) infinite;
+    -webkit-animation-delay: -0.32s;
+            animation-delay: -0.32s;
+  }
+  
+  .dots-col:nth-child(2) > .dots-dot:nth-child(5) {
+    -webkit-animation: lightup 0.7s cubic-bezier(0.86, 0, 0.07, 1) infinite;
+            animation: lightup 0.7s cubic-bezier(0.86, 0, 0.07, 1) infinite;
+    -webkit-animation-delay: -0.4s;
+            animation-delay: -0.4s;
+  }
+  
+  .dots-col:nth-child(2) > .dots-dot:nth-child(6) {
+    -webkit-animation: lightup 0.7s cubic-bezier(0.86, 0, 0.07, 1) infinite;
+            animation: lightup 0.7s cubic-bezier(0.86, 0, 0.07, 1) infinite;
+    -webkit-animation-delay: -0.48s;
+            animation-delay: -0.48s;
+  }
+  
+  .dots-col:nth-child(3) > .dots-dot:nth-child(2) {
+    -webkit-animation: lightup 0.8s cubic-bezier(0.86, 0, 0.07, 1) infinite;
+            animation: lightup 0.8s cubic-bezier(0.86, 0, 0.07, 1) infinite;
+    -webkit-animation-delay: -0.08s;
+            animation-delay: -0.08s;
+  }
+  
+  .dots-col:nth-child(3) > .dots-dot:nth-child(3) {
+    -webkit-animation: lightup 0.8s cubic-bezier(0.86, 0, 0.07, 1) infinite;
+            animation: lightup 0.8s cubic-bezier(0.86, 0, 0.07, 1) infinite;
+    -webkit-animation-delay: -0.12s;
+            animation-delay: -0.12s;
+  }
+  
+  .dots-col:nth-child(3) > .dots-dot:nth-child(4) {
+    -webkit-animation: lightup 0.8s cubic-bezier(0.86, 0, 0.07, 1) infinite;
+            animation: lightup 0.8s cubic-bezier(0.86, 0, 0.07, 1) infinite;
+    -webkit-animation-delay: -0.16s;
+            animation-delay: -0.16s;
+  }
+  
+  .dots-col:nth-child(3) > .dots-dot:nth-child(5) {
+    -webkit-animation: lightup 0.8s cubic-bezier(0.86, 0, 0.07, 1) infinite;
+            animation: lightup 0.8s cubic-bezier(0.86, 0, 0.07, 1) infinite;
+    -webkit-animation-delay: -0.2s;
+            animation-delay: -0.2s;
+  }
+  
+  .dots-col:nth-child(3) > .dots-dot:nth-child(6) {
+    -webkit-animation: lightup 0.8s cubic-bezier(0.86, 0, 0.07, 1) infinite;
+            animation: lightup 0.8s cubic-bezier(0.86, 0, 0.07, 1) infinite;
+    -webkit-animation-delay: -0.24s;
+            animation-delay: -0.24s;
+  }
+  
+  .dots-col:nth-child(4) > .dots-dot:nth-child(3) {
+    -webkit-animation: lightup 0.9s cubic-bezier(0.86, 0, 0.07, 1) infinite;
+            animation: lightup 0.9s cubic-bezier(0.86, 0, 0.07, 1) infinite;
+    -webkit-animation-delay: -0.15s;
+            animation-delay: -0.15s;
+  }
+  
+  .dots-col:nth-child(4) > .dots-dot:nth-child(4) {
+    -webkit-animation: lightup 0.9s cubic-bezier(0.86, 0, 0.07, 1) infinite;
+            animation: lightup 0.9s cubic-bezier(0.86, 0, 0.07, 1) infinite;
+    -webkit-animation-delay: -0.2s;
+            animation-delay: -0.2s;
+  }
+  
+  .dots-col:nth-child(4) > .dots-dot:nth-child(5) {
+    -webkit-animation: lightup 0.9s cubic-bezier(0.86, 0, 0.07, 1) infinite;
+            animation: lightup 0.9s cubic-bezier(0.86, 0, 0.07, 1) infinite;
+    -webkit-animation-delay: -0.25s;
+            animation-delay: -0.25s;
+  }
+  
+  .dots-col:nth-child(4) > .dots-dot:nth-child(6) {
+    -webkit-animation: lightup 0.9s cubic-bezier(0.86, 0, 0.07, 1) infinite;
+            animation: lightup 0.9s cubic-bezier(0.86, 0, 0.07, 1) infinite;
+    -webkit-animation-delay: -0.3s;
+            animation-delay: -0.3s;
+  }
+  
+  .dots-col:nth-child(5) > .dots-dot:nth-child(2) {
+    -webkit-animation: lightup 0.8s cubic-bezier(0.86, 0, 0.07, 1) infinite;
+            animation: lightup 0.8s cubic-bezier(0.86, 0, 0.07, 1) infinite;
+    -webkit-animation-delay: -0.12s;
+            animation-delay: -0.12s;
+  }
+  
+  .dots-col:nth-child(5) > .dots-dot:nth-child(3) {
+    -webkit-animation: lightup 0.8s cubic-bezier(0.86, 0, 0.07, 1) infinite;
+            animation: lightup 0.8s cubic-bezier(0.86, 0, 0.07, 1) infinite;
+    -webkit-animation-delay: -0.18s;
+            animation-delay: -0.18s;
+  }
+  
+  .dots-col:nth-child(5) > .dots-dot:nth-child(4) {
+    -webkit-animation: lightup 0.8s cubic-bezier(0.86, 0, 0.07, 1) infinite;
+            animation: lightup 0.8s cubic-bezier(0.86, 0, 0.07, 1) infinite;
+    -webkit-animation-delay: -0.24s;
+            animation-delay: -0.24s;
+  }
+  
+  .dots-col:nth-child(5) > .dots-dot:nth-child(5) {
+    -webkit-animation: lightup 0.8s cubic-bezier(0.86, 0, 0.07, 1) infinite;
+            animation: lightup 0.8s cubic-bezier(0.86, 0, 0.07, 1) infinite;
+    -webkit-animation-delay: -0.3s;
+            animation-delay: -0.3s;
+  }
+  
+  .dots-col:nth-child(5) > .dots-dot:nth-child(6) {
+    -webkit-animation: lightup 0.8s cubic-bezier(0.86, 0, 0.07, 1) infinite;
+            animation: lightup 0.8s cubic-bezier(0.86, 0, 0.07, 1) infinite;
+    -webkit-animation-delay: -0.36s;
+            animation-delay: -0.36s;
+  }
+  
+  .dots-col:nth-child(6) > .dots-dot:nth-child(2) {
+    -webkit-animation: lightup 1s cubic-bezier(0.86, 0, 0.07, 1) infinite;
+            animation: lightup 1s cubic-bezier(0.86, 0, 0.07, 1) infinite;
+    -webkit-animation-delay: -0.12s;
+            animation-delay: -0.12s;
+  }
+  
+  .dots-col:nth-child(6) > .dots-dot:nth-child(3) {
+    -webkit-animation: lightup 1s cubic-bezier(0.86, 0, 0.07, 1) infinite;
+            animation: lightup 1s cubic-bezier(0.86, 0, 0.07, 1) infinite;
+    -webkit-animation-delay: -0.18s;
+            animation-delay: -0.18s;
+  }
+  
+  .dots-col:nth-child(6) > .dots-dot:nth-child(4) {
+    -webkit-animation: lightup 1s cubic-bezier(0.86, 0, 0.07, 1) infinite;
+            animation: lightup 1s cubic-bezier(0.86, 0, 0.07, 1) infinite;
+    -webkit-animation-delay: -0.24s;
+            animation-delay: -0.24s;
+  }
+  
+  .dots-col:nth-child(6) > .dots-dot:nth-child(5) {
+    -webkit-animation: lightup 1s cubic-bezier(0.86, 0, 0.07, 1) infinite;
+            animation: lightup 1s cubic-bezier(0.86, 0, 0.07, 1) infinite;
+    -webkit-animation-delay: -0.3s;
+            animation-delay: -0.3s;
+  }
+  
+  .dots-col:nth-child(6) > .dots-dot:nth-child(6) {
+    -webkit-animation: lightup 1s cubic-bezier(0.86, 0, 0.07, 1) infinite;
+            animation: lightup 1s cubic-bezier(0.86, 0, 0.07, 1) infinite;
+    -webkit-animation-delay: -0.36s;
+            animation-delay: -0.36s;
+  }
+  
+  .dots-col:nth-child(7) > .dots-dot:nth-child(3) {
+    -webkit-animation: lightup 0.9s cubic-bezier(0.86, 0, 0.07, 1) infinite;
+            animation: lightup 0.9s cubic-bezier(0.86, 0, 0.07, 1) infinite;
+    -webkit-animation-delay: -0.15s;
+            animation-delay: -0.15s;
+  }
+  
+  .dots-col:nth-child(7) > .dots-dot:nth-child(4) {
+    -webkit-animation: lightup 0.9s cubic-bezier(0.86, 0, 0.07, 1) infinite;
+            animation: lightup 0.9s cubic-bezier(0.86, 0, 0.07, 1) infinite;
+    -webkit-animation-delay: -0.2s;
+            animation-delay: -0.2s;
+  }
+  
+  .dots-col:nth-child(7) > .dots-dot:nth-child(5) {
+    -webkit-animation: lightup 0.9s cubic-bezier(0.86, 0, 0.07, 1) infinite;
+            animation: lightup 0.9s cubic-bezier(0.86, 0, 0.07, 1) infinite;
+    -webkit-animation-delay: -0.25s;
+            animation-delay: -0.25s;
+  }
+  
+  .dots-col:nth-child(7) > .dots-dot:nth-child(6) {
+    -webkit-animation: lightup 0.9s cubic-bezier(0.86, 0, 0.07, 1) infinite;
+            animation: lightup 0.9s cubic-bezier(0.86, 0, 0.07, 1) infinite;
+    -webkit-animation-delay: -0.3s;
+            animation-delay: -0.3s;
+  }
+  
+  .dots-col:nth-child(8) > .dots-dot:nth-child(4) {
+    -webkit-animation: lightup 0.9s cubic-bezier(0.86, 0, 0.07, 1) infinite;
+            animation: lightup 0.9s cubic-bezier(0.86, 0, 0.07, 1) infinite;
+    -webkit-animation-delay: -0.2s;
+            animation-delay: -0.2s;
+  }
+  
+  .dots-col:nth-child(8) > .dots-dot:nth-child(5) {
+    -webkit-animation: lightup 0.9s cubic-bezier(0.86, 0, 0.07, 1) infinite;
+            animation: lightup 0.9s cubic-bezier(0.86, 0, 0.07, 1) infinite;
+    -webkit-animation-delay: -0.25s;
+            animation-delay: -0.25s;
+  }
+  
+  .dots-col:nth-child(8) > .dots-dot:nth-child(6) {
+    -webkit-animation: lightup 0.9s cubic-bezier(0.86, 0, 0.07, 1) infinite;
+            animation: lightup 0.9s cubic-bezier(0.86, 0, 0.07, 1) infinite;
+    -webkit-animation-delay: -0.3s;
+            animation-delay: -0.3s;
+  }
+  
+  .dots-col:nth-child(9) > .dots-dot:nth-child(5) {
+    -webkit-animation: lightup 0.8s cubic-bezier(0.86, 0, 0.07, 1) infinite;
+            animation: lightup 0.8s cubic-bezier(0.86, 0, 0.07, 1) infinite;
+    -webkit-animation-delay: -0.25s;
+            animation-delay: -0.25s;
+  }
+  
+  .dots-col:nth-child(9) > .dots-dot:nth-child(6) {
+    -webkit-animation: lightup 0.8s cubic-bezier(0.86, 0, 0.07, 1) infinite;
+            animation: lightup 0.8s cubic-bezier(0.86, 0, 0.07, 1) infinite;
+    -webkit-animation-delay: -0.3s;
+            animation-delay: -0.3s;
+  }
+  
+  @-webkit-keyframes lightup {
+    0% {
+      opacity: 0.3;
+    }
+    50% {
+      opacity: 1;
+    }
+    75% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0.3;
+    }
+  }
+  
+  @keyframes lightup {
+    0% {
+      opacity: 0.3;
+    }
+    50% {
+      opacity: 1;
+    }
+    75% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0.3;
+    }
+  }
+  .logo {
+    position: fixed;
+    bottom: 3vh;
+    right: 3vw;
+    z-index: 2;
+  }
+  .logo img {
+    width: 65px;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1); 
+  }
+  .logo img:hover {
+    transform:   scale(1.5);
+  }
+
+  .hidden {
+          visibility: hidden;
+  }
